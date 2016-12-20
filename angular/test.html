@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+<style>
+text {
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+</style>
+<link rel="stylesheet" href="bootstrap.min.css">
+
+<body ng-app="myApp">
+
+<div class="container" ng-controller="demoController">
+    <div class="row">
+        <div>
+            <draw-words lst="wordList" ></draw-words>
+            <!--<draw-words lst="wordList" ></draw-words>-->
+        </div>
+    </div>
+    <div>
+        <span>{{inputNumber}}</span>
+    </div>
+    <div class="row">
+        <div class="col-md-11">
+            <textarea class="form-control" rows="4" ng-model="inputText"></textarea>
+        </div>
+        <div class="col-md-1">
+            <input class="form-control" type="number" value="0" ng-model="inputNumber" ng-change="proba()">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <button class="btn btn-success pull-right" ng-click="sendText()">Send text</button>
+    </div>
+</div>
+
+<script src="angular.min.js"></script>
+<script src="app.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="d3.word.js"></script>
+<script src="directives/drawWords.js"></script>
+<script src="views/draw-words.html"></script>
+<script src="controllers/demoController.js"></script>
+<script src="services/demoService.js"></script>
+</body>
+</html>
