@@ -11,14 +11,23 @@ text {
 
 <body ng-app="myApp">
 
-<div class="container">
+<div class="container" ng-controller="demoController">
     <div class="row">
-        <div ng-controller="demoController">
+        <div>
             <draw-words lst="wordList" ></draw-words>
+            <!--<draw-words lst="wordList" ></draw-words>-->
         </div>
     </div>
+    <div>
+        <span>{{inputNumber}}</span>
+    </div>
     <div class="row">
-        <textarea class="form-control" rows="4" ></textarea>
+        <div class="col-md-11">
+            <textarea class="form-control" rows="4" ng-model="inputText"></textarea>
+        </div>
+        <div class="col-md-1">
+            <input class="form-control" type="number" value="0" ng-model="inputNumber" ng-change="proba()">
+        </div>
     </div>
     <br>
     <div class="row">
@@ -30,10 +39,9 @@ text {
 <script src="app.js"></script>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="d3.word.js"></script>
-<script src="customWordImplementation.js"></script>
-<script src="controllers/demoController.js"></script>
 <script src="directives/drawWords.js"></script>
 <script src="views/draw-words.html"></script>
+<script src="controllers/demoController.js"></script>
 <script src="services/demoService.js"></script>
 </body>
 </html>

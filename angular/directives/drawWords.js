@@ -20,7 +20,7 @@ app.directive('drawWords', function () {
 
                 redrawChart(scope.lst);
 
-                scope.$watchCollection('lst',function (newValue) {
+                scope.$watch('lst',function (newValue) {
                     redrawChart(newValue);
                 });
 
