@@ -1,9 +1,8 @@
 app.controller("demoController", function ($scope, $http, demoService, filterFilter){
     $scope.globalWordList = [];
-    $scope.wordList = [{text:"asd",size:23},{text:"asd",size:22},{text:"asd",size:13},{text:"asd",size:45}];
-
+    $scope.wordList = [{text:"Example1",size:23},{text:"Example2",size:22},{text:"Example3",size:13},{text:"Example4",size:45}];
+    $scope.globalWordList = $scope.wordList;
     $scope.inputText = "";
-
     $scope.inputNumber = "";
 
     $scope.sendText = function () {
@@ -22,9 +21,18 @@ app.controller("demoController", function ($scope, $http, demoService, filterFil
             })
     };
 
-    $scope.proba = function () {
+    $scope.changeInput = function () {
         $scope.item = $scope.globalWordList;
 
-        $scope.wordList = filterFilter($scope.item, {size: $scope.inputNumber});
+        // $scope.wordList = filterFilter($scope.item, {size: $scope.inputNumber});
+        $scope.wordList = filterFilter($scope.item, {size: $scope.inputNumber}, function (actual, expected) {
+            console.log(actual);
+            console.log(expected);
+
+            if (actual < expected){
+                return true;
+            }
+            return false;
+        });
     }
 });
